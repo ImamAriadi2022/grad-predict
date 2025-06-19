@@ -5,10 +5,14 @@ from decision_tree_model import load_and_prepare_data, train_decision_tree
 X_train, X_test, y_train, y_test = load_and_prepare_data("data/StudentsPerformance.csv")
 model = train_decision_tree(X_train, y_train)
 
+# Evaluasi akurasi model
+accuracy = model.score(X_test, y_test)
+print(f"Akurasi model pada data uji: {accuracy:.2%}")
+
 # Simpan kolom pelatihan
 train_columns = X_train.columns
 
-print("=== Prediksi Kelulusan Mahasiswa ===")
+print("\n=== Prediksi Kelulusan Mahasiswa ===")
 # Input user
 math = int(input("Masukkan nilai Matematika: "))
 reading = int(input("Masukkan nilai Membaca: "))
